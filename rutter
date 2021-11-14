@@ -4,3 +4,20 @@ export FLASK_APP=app
 flask run
 # * Running on http://127.0.0.1:5000/
 
+docker image build -t jrevilla5/hello_docker:first_ctr . 
+
+docker build --tag python-docker .
+
+docker image ls 
+docker image build -t jrevilla5/hello_docker:first_ctr .   
+docker image push jrevilla5/hello_docker:first_ctr  
+docker image rm jrevilla5/hello_docker:first_ctr
+
+docker container run -d --name web -p 8000:5000 jrevilla5/hello_docker:first_ctr 
+
+docker container stop web 
+docker container start web
+docker container rm web 
+
+docker container run -it --name test alpine sh 
+ctrl-p-q 
